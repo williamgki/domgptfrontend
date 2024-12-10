@@ -57,7 +57,7 @@ export default function Home() {
         ? 'bg-[url("/blog-background.jpg")]' 
         : 'bg-[url("/twitter-background.jpg")]'
     } bg-cover bg-center bg-fixed`}>
-      <div className="w-full max-w-4xl bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-4">
+      <div className="w-full max-w-4xl bg-white/70 backdrop-blur-sm rounded-lg shadow-lg p-4">
         <div className="mb-4 flex justify-center">
           <select
             value={style}
