@@ -5,28 +5,11 @@ import { Send } from 'lucide-react';
 import { FooterDisclaimer } from '../components/Disclaimer';
 import { DisclaimerPopup } from '../components/DisclaimerPopup';
 
-<div className="mb-4 flex justify-center items-center gap-4">
-  <select
-    value={style}
-    onChange={handleStyleChange}
-    className="w-[200px] p-2 rounded-lg border border-gray-300 bg-white"
-  >
-    <option value="blog">Blog Dom</option>
-    <option value="twitter">Twitter Dom</option>
-  </select>
-  <a 
-    href="/about" 
-    className="text-sm text-gray-600 hover:text-gray-800 underline"
-  >
-    About
-  </a>
-</div>
-
 const SuggestedQuestions = ({ style, onQuestionClick }) => {
   const questions = {
     blog: [
       "What's your view on effective government decision making?",
-      "Compare Bismarck and Metternich's views on power",
+      "How would you reform the civil service?",
       "What are the key lessons from your time in No 10?"
     ],
     twitter: [
@@ -115,7 +98,7 @@ export default function Home() {
           : 'bg-[url("/twitter-background.jpg")]'
       } bg-cover bg-center bg-fixed`}>
         <div className="w-full max-w-4xl bg-white/70 backdrop-blur-sm rounded-lg shadow-lg p-4">
-          <div className="mb-4 flex justify-center">
+          <div className="mb-4 flex justify-center items-center gap-4">
             <select
               value={style}
               onChange={handleStyleChange}
@@ -124,6 +107,12 @@ export default function Home() {
               <option value="blog">Blog Dom</option>
               <option value="twitter">Twitter Dom</option>
             </select>
+            <a 
+              href="/about" 
+              className="text-sm text-gray-600 hover:text-gray-800 underline"
+            >
+              About
+            </a>
           </div>
 
           <h1 className="text-2xl font-bold text-center mb-4">Ask Your Question</h1>
@@ -199,4 +188,3 @@ export default function Home() {
     </>
   );
 }
-
