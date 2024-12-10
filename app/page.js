@@ -57,6 +57,11 @@ export default function Home() {
     e.preventDefault();
     if (!input.trim()) return;
 
+    // Reset rate limit info if it's a new session
+    if (!rateLimitInfo || rateLimitInfo.seconds_until_reset === 0) {
+      setRateLimitInfo(null);
+    }
+
     setMessages(prev => [...prev, { role: 'user', content: input }]);
     setLoading(true);
 
@@ -74,11 +79,11 @@ export default function Home() {
 
       if (!response.ok) {
         if (response.status === 429) {
-          // Rate limit exceeded
+          console.log('Rate limit hit:', data.detail); // Debug log
           setRateLimitInfo(data.detail.rate_limit_info);
           setMessages(prev => [...prev, {
             role: 'error',
-            content: 'Rate limit reached. Please wait before asking another question.'
+            content: `Rate limit reached. Please wait ${Math.ceil(data.detail.rate_limit_info.seconds_until_reset / 60)} minutes before asking another question.`
           }]);
         } else {
           throw new Error('Failed to get response');
@@ -86,11 +91,17 @@ export default function Home() {
         return;
       }
 
+      // Update messages and rate limit info
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: data.answer
+        content: data.answer,
+        sources: data.sources
       }]);
-      setRateLimitInfo(data.rate_limit_info);
+
+      if (data.rate_limit_info) {
+        console.log('Rate limit info:', data.rate_limit_info); // Debug log
+        setRateLimitInfo(data.rate_limit_info);
+      }
 
     } catch (error) {
       console.error('Error:', error);
@@ -146,12 +157,12 @@ export default function Home() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type your question..."
               className="flex-1 p-2 border rounded-lg bg-white/70 backdrop-blur-sm"
-              disabled={loading}
+              disabled={loading || (rateLimitInfo && rateLimitInfo.requests_remaining === 0)}
               maxLength={60}
             />
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || (rateLimitInfo && rateLimitInfo.requests_remaining === 0)}
               className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-blue-300"
             >
               <Send className="w-5 h-5" />
