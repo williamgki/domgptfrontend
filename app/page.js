@@ -2,12 +2,31 @@
 
 import { useState } from 'react';
 import { Send } from 'lucide-react';
+import { FooterDisclaimer } from '../components/Disclaimer';
+import { DisclaimerPopup } from '../components/DisclaimerPopup';
+
+<div className="mb-4 flex justify-center items-center gap-4">
+  <select
+    value={style}
+    onChange={handleStyleChange}
+    className="w-[200px] p-2 rounded-lg border border-gray-300 bg-white"
+  >
+    <option value="blog">Blog Dom</option>
+    <option value="twitter">Twitter Dom</option>
+  </select>
+  <a 
+    href="/about" 
+    className="text-sm text-gray-600 hover:text-gray-800 underline"
+  >
+    About
+  </a>
+</div>
 
 const SuggestedQuestions = ({ style, onQuestionClick }) => {
   const questions = {
     blog: [
       "What's your view on effective government decision making?",
-      "Compare Bismarck and Metternich's views on power?",
+      "Compare Bismarck and Metternich's views on power",
       "What are the key lessons from your time in No 10?"
     ],
     twitter: [
@@ -88,91 +107,96 @@ export default function Home() {
   };
 
   return (
-    <main className={`min-h-screen flex flex-col items-center p-4 ${
-      style === 'blog' 
-        ? 'bg-[url("/blog-background.jpg")]' 
-        : 'bg-[url("/twitter-background.jpg")]'
-    } bg-cover bg-center bg-fixed`}>
-      <div className="w-full max-w-4xl bg-white/70 backdrop-blur-sm rounded-lg shadow-lg p-4">
-        <div className="mb-4 flex justify-center">
-          <select
-            value={style}
-            onChange={handleStyleChange}
-            className="w-[200px] p-2 rounded-lg border border-gray-300 bg-white"
-          >
-            <option value="blog">Blog Dom</option>
-            <option value="twitter">Twitter Dom</option>
-          </select>
-        </div>
+    <>
+      <DisclaimerPopup />
+      <main className={`min-h-screen flex flex-col items-center p-4 ${
+        style === 'blog' 
+          ? 'bg-[url("/blog-background.jpg")]' 
+          : 'bg-[url("/twitter-background.jpg")]'
+      } bg-cover bg-center bg-fixed`}>
+        <div className="w-full max-w-4xl bg-white/70 backdrop-blur-sm rounded-lg shadow-lg p-4">
+          <div className="mb-4 flex justify-center">
+            <select
+              value={style}
+              onChange={handleStyleChange}
+              className="w-[200px] p-2 rounded-lg border border-gray-300 bg-white"
+            >
+              <option value="blog">Blog Dom</option>
+              <option value="twitter">Twitter Dom</option>
+            </select>
+          </div>
 
-        <h1 className="text-2xl font-bold text-center mb-4">Ask Your Question</h1>
-        
-        {messages.length === 0 && (
-          <SuggestedQuestions 
-            style={style} 
-            onQuestionClick={handleSuggestedQuestionClick} 
-          />
-        )}
+          <h1 className="text-2xl font-bold text-center mb-4">Ask Your Question</h1>
+          
+          {messages.length === 0 && (
+            <SuggestedQuestions 
+              style={style} 
+              onQuestionClick={handleSuggestedQuestionClick} 
+            />
+          )}
 
-        <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your question..."
-            className="flex-1 p-2 border rounded-lg bg-white/70 backdrop-blur-sm"
-            disabled={loading}
-            maxLength={60}
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-blue-300"
-          >
-            <Send className="w-5 h-5" />
-          </button>
-        </form>
+          <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Type your question..."
+              className="flex-1 p-2 border rounded-lg bg-white/70 backdrop-blur-sm"
+              disabled={loading}
+              maxLength={60}
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-blue-300"
+            >
+              <Send className="w-5 h-5" />
+            </button>
+          </form>
 
-        {messages.length > 0 && (
-          <div className="h-[600px] overflow-y-auto space-y-4 p-4">
-            {messages.map((message, idx) => (
-              <div key={idx}>
-                <div className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] p-3 rounded-lg ${
-                    message.role === 'user' 
-                      ? 'bg-blue-100' 
-                      : message.role === 'error'
-                      ? 'bg-red-100'
-                      : 'bg-gray-100'
-                  }`}>
-                    <div className="whitespace-pre-wrap">{message.content}</div>
-                    
-                    {message.sources && (
-                      <div className="mt-2 text-sm text-gray-600">
-                        <div className="font-semibold">Sources:</div>
-                        {message.sources.map((source, sourceIdx) => (
-                          <div key={sourceIdx} className="mt-1">
-                            <div>{source.source}</div>
-                            <div className="text-xs">{source.text}</div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+          {messages.length > 0 && (
+            <div className="h-[600px] overflow-y-auto space-y-4 p-4">
+              {messages.map((message, idx) => (
+                <div key={idx}>
+                  <div className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                    <div className={`max-w-[80%] p-3 rounded-lg ${
+                      message.role === 'user' 
+                        ? 'bg-blue-100' 
+                        : message.role === 'error'
+                        ? 'bg-red-100'
+                        : 'bg-gray-100'
+                    }`}>
+                      <div className="whitespace-pre-wrap">{message.content}</div>
+                      
+                      {message.sources && (
+                        <div className="mt-2 text-sm text-gray-600">
+                          <div className="font-semibold">Sources:</div>
+                          {message.sources.map((source, sourceIdx) => (
+                            <div key={sourceIdx} className="mt-1">
+                              <div>{source.source}</div>
+                              <div className="text-xs">{source.text}</div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-            
-            {loading && (
-              <div className="flex justify-start">
-                <div className="bg-gray-100 p-3 rounded-lg animate-pulse">
-                  Thinking...
+              ))}
+              
+              {loading && (
+                <div className="flex justify-start">
+                  <div className="bg-gray-100 p-3 rounded-lg animate-pulse">
+                    Thinking...
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
-    </main>
+              )}
+            </div>
+          )}
+          <FooterDisclaimer />
+        </div>
+      </main>
+    </>
   );
 }
+
