@@ -4,12 +4,13 @@ import { useState } from 'react';
 import { Send } from 'lucide-react';
 import { FooterDisclaimer } from '../components/Disclaimer';
 import { DisclaimerPopup } from '../components/DisclaimerPopup';
+import { RateLimitInfo } from '../components/RateLimitInfo';
 
 const SuggestedQuestions = ({ style, onQuestionClick }) => {
   const questions = {
     blog: [
       "What's your view on effective government decision making?",
-      "How would you reform the civil service?",
+      "Contrast Metternich and Bismarck's views on power?",
       "What are the key lessons from your time in No 10?"
     ],
     twitter: [
@@ -42,6 +43,7 @@ export default function Home() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [style, setStyle] = useState('blog');
+  const [rateLimitInfo, setRateLimitInfo] = useState(null);
 
   const handleStyleChange = (e) => {
     setStyle(e.target.value);
@@ -68,15 +70,28 @@ export default function Home() {
         })
       });
 
-      if (!response.ok) throw new Error('Failed to get response');
-
       const data = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 429) {
+          // Rate limit exceeded
+          setRateLimitInfo(data.detail.rate_limit_info);
+          setMessages(prev => [...prev, {
+            role: 'error',
+            content: 'Rate limit reached. Please wait before asking another question.'
+          }]);
+        } else {
+          throw new Error('Failed to get response');
+        }
+        return;
+      }
 
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: data.answer,
-        sources: data.sources
+        content: data.answer
       }]);
+      setRateLimitInfo(data.rate_limit_info);
+
     } catch (error) {
       console.error('Error:', error);
       setMessages(prev => [...prev, {
@@ -142,6 +157,8 @@ export default function Home() {
               <Send className="w-5 h-5" />
             </button>
           </form>
+
+          <RateLimitInfo rateLimitInfo={rateLimitInfo} />
 
           {messages.length > 0 && (
             <div className="h-[600px] overflow-y-auto space-y-4 p-4">
