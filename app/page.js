@@ -7,7 +7,7 @@ const SuggestedQuestions = ({ style, onQuestionClick }) => {
   const questions = {
     blog: [
       "What's your view on effective government decision making?",
-      "How would you reform the civil service?",
+      "Compare Bismarck and Metternich's views on power?",
       "What are the key lessons from your time in No 10?"
     ],
     twitter: [
