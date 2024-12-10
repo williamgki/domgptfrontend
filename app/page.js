@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import { useState } from 'react';
 import { Send } from 'lucide-react';
 
@@ -6,6 +7,11 @@ export default function Home() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [style, setStyle] = useState('blog');
+
+  const handleStyleChange = (e) => {
+    setStyle(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +24,10 @@ export default function Home() {
       const response = await fetch('https://domgpt.up.railway.app/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: input })
+        body: JSON.stringify({ 
+          question: input,
+          style: style  // Adding style to the request for future backend use
+        })
       });
 
       if (!response.ok) throw new Error('Failed to get response');
@@ -43,8 +52,23 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-4 bg-gray-50">
-      <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg p-4">
+    <main className={`min-h-screen flex flex-col items-center p-4 ${
+      style === 'blog' 
+        ? 'bg-[url("/blog-background.jpg")]' 
+        : 'bg-[url("/twitter-background.jpg")]'
+    } bg-cover bg-center bg-fixed`}>
+      <div className="w-full max-w-4xl bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-4">
+        <div className="mb-4 flex justify-center">
+          <select
+            value={style}
+            onChange={handleStyleChange}
+            className="w-[200px] p-2 rounded-lg border border-gray-300 bg-white"
+          >
+            <option value="blog">Blog Dom</option>
+            <option value="twitter">Twitter Dom</option>
+          </select>
+        </div>
+
         <h1 className="text-2xl font-bold text-center mb-4">Ask Your Question</h1>
         
         <div className="h-[600px] overflow-y-auto mb-4 space-y-4 p-4">
@@ -91,8 +115,9 @@ export default function Home() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your question..."
-            className="flex-1 p-2 border rounded-lg"
+            className="flex-1 p-2 border rounded-lg bg-white/90 backdrop-blur-sm"
             disabled={loading}
+            maxLength={60}
           />
           <button
             type="submit"
