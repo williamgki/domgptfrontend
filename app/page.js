@@ -3,6 +3,38 @@
 import { useState } from 'react';
 import { Send } from 'lucide-react';
 
+const SuggestedQuestions = ({ style, onQuestionClick }) => {
+  const questions = {
+    blog: [
+      "What's your view on effective government decision making?",
+      "How would you reform the civil service?",
+      "What are the key lessons from your time in No 10?"
+    ],
+    twitter: [
+      "Why is Westminster full of PPE grads?",
+      "Hot take on AI doom scenarios?",
+      "What's wrong with the Treasury?"
+    ]
+  };
+
+  return (
+    <div className="flex flex-wrap gap-2 mb-4 justify-center">
+      {questions[style].map((question, idx) => (
+        <button
+          key={idx}
+          onClick={() => onQuestionClick(question)}
+          className="px-4 py-2 bg-white/50 hover:bg-white/70 backdrop-blur-sm rounded-full
+                     text-gray-800 text-sm transition-all duration-200
+                     border border-gray-200 hover:border-gray-300
+                     shadow-sm hover:shadow"
+        >
+          {question}
+        </button>
+      ))}
+    </div>
+  );
+};
+
 export default function Home() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -11,6 +43,10 @@ export default function Home() {
 
   const handleStyleChange = (e) => {
     setStyle(e.target.value);
+  };
+
+  const handleSuggestedQuestionClick = (question) => {
+    setInput(question);
   };
 
   const handleSubmit = async (e) => {
@@ -71,6 +107,13 @@ export default function Home() {
 
         <h1 className="text-2xl font-bold text-center mb-4">Ask Your Question</h1>
         
+        {messages.length === 0 && (
+          <SuggestedQuestions 
+            style={style} 
+            onQuestionClick={handleSuggestedQuestionClick} 
+          />
+        )}
+
         <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
           <input
             type="text"
