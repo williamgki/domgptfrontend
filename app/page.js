@@ -26,7 +26,7 @@ export default function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           question: input,
-          style: style  // Adding style to the request for future backend use
+          style: style
         })
       });
 
@@ -71,51 +71,13 @@ export default function Home() {
 
         <h1 className="text-2xl font-bold text-center mb-4">Ask Your Question</h1>
         
-        <div className="h-[600px] overflow-y-auto mb-4 space-y-4 p-4">
-          {messages.map((message, idx) => (
-            <div key={idx}>
-              <div className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[80%] p-3 rounded-lg ${
-                  message.role === 'user' 
-                    ? 'bg-blue-100' 
-                    : message.role === 'error'
-                    ? 'bg-red-100'
-                    : 'bg-gray-100'
-                }`}>
-                  <div className="whitespace-pre-wrap">{message.content}</div>
-                  
-                  {message.sources && (
-                    <div className="mt-2 text-sm text-gray-600">
-                      <div className="font-semibold">Sources:</div>
-                      {message.sources.map((source, sourceIdx) => (
-                        <div key={sourceIdx} className="mt-1">
-                          <div>{source.source}</div>
-                          <div className="text-xs">{source.text}</div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-          
-          {loading && (
-            <div className="flex justify-start">
-              <div className="bg-gray-100 p-3 rounded-lg animate-pulse">
-                Thinking...
-              </div>
-            </div>
-          )}
-        </div>
-
-        <form onSubmit={handleSubmit} className="flex gap-2">
+        <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your question..."
-            className="flex-1 p-2 border rounded-lg bg-white/90 backdrop-blur-sm"
+            className="flex-1 p-2 border rounded-lg bg-white/70 backdrop-blur-sm"
             disabled={loading}
             maxLength={60}
           />
@@ -127,6 +89,46 @@ export default function Home() {
             <Send className="w-5 h-5" />
           </button>
         </form>
+
+        {messages.length > 0 && (
+          <div className="h-[600px] overflow-y-auto space-y-4 p-4">
+            {messages.map((message, idx) => (
+              <div key={idx}>
+                <div className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`max-w-[80%] p-3 rounded-lg ${
+                    message.role === 'user' 
+                      ? 'bg-blue-100' 
+                      : message.role === 'error'
+                      ? 'bg-red-100'
+                      : 'bg-gray-100'
+                  }`}>
+                    <div className="whitespace-pre-wrap">{message.content}</div>
+                    
+                    {message.sources && (
+                      <div className="mt-2 text-sm text-gray-600">
+                        <div className="font-semibold">Sources:</div>
+                        {message.sources.map((source, sourceIdx) => (
+                          <div key={sourceIdx} className="mt-1">
+                            <div>{source.source}</div>
+                            <div className="text-xs">{source.text}</div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+            
+            {loading && (
+              <div className="flex justify-start">
+                <div className="bg-gray-100 p-3 rounded-lg animate-pulse">
+                  Thinking...
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </main>
   );
