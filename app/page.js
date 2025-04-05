@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Send } from 'lucide-react';
 import { FooterDisclaimer } from '../components/Disclaimer';
 import { DisclaimerPopup } from '../components/DisclaimerPopup';
-import { RateLimitInfo } from '../components/RateLimitInfo';
 
 const SuggestedQuestions = ({ style, onQuestionClick }) => {
   const questions = {
@@ -43,19 +42,13 @@ export default function Home() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [style, setStyle] = useState('blog');
-  const [rateLimitInfo, setRateLimitInfo] = useState(null);
 
   const handleStyleChange = (e) => setStyle(e.target.value);
-
   const handleSuggestedQuestionClick = (question) => setInput(question);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
-
-    if (!rateLimitInfo || rateLimitInfo.seconds_until_reset === 0) {
-      setRateLimitInfo(null);
-    }
 
     setMessages(prev => [...prev, { role: 'user', content: input }]);
     setLoading(true);
@@ -73,15 +66,10 @@ export default function Home() {
       const data = await response.json();
 
       if (!response.ok) {
-        if (response.status === 429) {
-          setRateLimitInfo(data.detail.rate_limit_info);
-          setMessages(prev => [...prev, {
-            role: 'error',
-            content: `Rate limit reached. Please wait ${Math.ceil(data.detail.rate_limit_info.seconds_until_reset / 60)} minutes before asking another question.`
-          }]);
-        } else {
-          throw new Error('Failed to get response');
-        }
+        setMessages(prev => [...prev, {
+          role: 'error',
+          content: 'Failed to get response from server.'
+        }]);
         return;
       }
 
@@ -90,10 +78,6 @@ export default function Home() {
         content: data.answer,
         sources: data.sources
       }]);
-
-      if (data.rate_limit_info) {
-        setRateLimitInfo(data.rate_limit_info);
-      }
 
     } catch (error) {
       console.error('Error:', error);
@@ -149,19 +133,17 @@ export default function Home() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type your question..."
               className="flex-1 p-2 border rounded-lg bg-white/70 backdrop-blur-sm"
-              disabled={loading || (rateLimitInfo && rateLimitInfo.requests_remaining === 0)}
+              disabled={loading}
               maxLength={60}
             />
             <button
               type="submit"
-              disabled={loading || (rateLimitInfo && rateLimitInfo.requests_remaining === 0)}
+              disabled={loading}
               className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-blue-300"
             >
               <Send className="w-5 h-5" />
             </button>
           </form>
-
-          <RateLimitInfo rateLimitInfo={rateLimitInfo} />
 
           {messages.length > 0 && (
             <div className="h-[600px] overflow-y-auto space-y-4 p-4">
