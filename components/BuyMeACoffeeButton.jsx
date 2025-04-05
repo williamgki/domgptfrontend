@@ -4,8 +4,6 @@ import { useEffect } from "react";
 
 export const BuyMeACoffeeButton = () => {
   useEffect(() => {
-    console.log("Mounting BMC script...");
-
     const script = document.createElement("script");
     script.setAttribute("src", "https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js");
     script.setAttribute("data-name", "bmc-button");
@@ -29,9 +27,10 @@ export const BuyMeACoffeeButton = () => {
   }, []);
 
   return (
-    <div 
-      id="bmc-container" 
-      className="mt-6 mb-4 flex justify-center bg-white rounded-xl shadow-md p-4"
+    <div
+      id="bmc-container"
+      className="mt-6 mb-4 flex justify-center items-center bg-white rounded-xl shadow-md p-4 min-h-[70px]"
+      style={{ minHeight: "70px" }}
     />
   );
 };
