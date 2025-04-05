@@ -21,7 +21,7 @@ export default function About() {
             </p>
             <p>
               I am not affiliated with Dominic Cummings and have never met him. If you are him, 
-              please email - I&apos;m keen to clear up any IP issues / donate to Maths Circles / whatever.
+              please email (domgptlarp at Google&apos;s email service)- I&apos;m keen to clear up any IP issues / donate to Maths Circles / whatever.
             </p>
           </section>
 
