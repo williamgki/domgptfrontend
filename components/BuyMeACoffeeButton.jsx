@@ -4,6 +4,8 @@ import { useEffect } from "react";
 
 export const BuyMeACoffeeButton = () => {
   useEffect(() => {
+    console.log("Mounting BMC script...");
+
     const script = document.createElement("script");
     script.setAttribute("src", "https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js");
     script.setAttribute("data-name", "bmc-button");
@@ -16,8 +18,20 @@ export const BuyMeACoffeeButton = () => {
     script.setAttribute("data-font-color", "#000000");
     script.setAttribute("data-coffee-color", "#ffffff");
     script.setAttribute("type", "text/javascript");
-    document.getElementById("bmc-container").appendChild(script);
+
+    const container = document.getElementById("bmc-container");
+
+    if (container) {
+      container.appendChild(script);
+    } else {
+      console.warn("No bmc-container found");
+    }
   }, []);
 
-  return <div id="bmc-container" className="mt-6 flex justify-center" />;
+  return (
+    <div 
+      id="bmc-container" 
+      className="mt-6 mb-4 flex justify-center bg-white rounded-xl shadow-md p-4"
+    />
+  );
 };
