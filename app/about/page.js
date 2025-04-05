@@ -61,7 +61,7 @@ export default function About() {
               <li>Grok / Aurora generated the background images.</li>
             </ol>
             <p>
-              I&apos;d be open to consulting arrangements if you want a similar site made about you 
+              I&apos;d be open to making other pages  if you want a similar site made about you 
               or someone you think highly of. An ethical screen exists (&apos;No&apos; to Greta or Andrew Tate).
             </p>
           </section>
