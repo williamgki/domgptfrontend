@@ -5,6 +5,7 @@ import { Send } from 'lucide-react';
 import { FooterDisclaimer } from '../components/Disclaimer';
 import { DisclaimerPopup } from '../components/DisclaimerPopup';
 import { RateLimitInfo } from '../components/RateLimitInfo';
+import { BuyMeACoffeeButton } from '../components/BuyMeACoffeeButton';
 
 const SuggestedQuestions = ({ style, onQuestionClick }) => {
   const questions = {
@@ -57,7 +58,6 @@ export default function Home() {
     e.preventDefault();
     if (!input.trim()) return;
 
-    // Reset rate limit info if it's a new session
     if (!rateLimitInfo || rateLimitInfo.seconds_until_reset === 0) {
       setRateLimitInfo(null);
     }
@@ -79,7 +79,6 @@ export default function Home() {
 
       if (!response.ok) {
         if (response.status === 429) {
-          console.log('Rate limit hit:', data.detail); // Debug log
           setRateLimitInfo(data.detail.rate_limit_info);
           setMessages(prev => [...prev, {
             role: 'error',
@@ -91,7 +90,6 @@ export default function Home() {
         return;
       }
 
-      // Update messages and rate limit info
       setMessages(prev => [...prev, {
         role: 'assistant',
         content: data.answer,
@@ -99,7 +97,6 @@ export default function Home() {
       }]);
 
       if (data.rate_limit_info) {
-        console.log('Rate limit info:', data.rate_limit_info); // Debug log
         setRateLimitInfo(data.rate_limit_info);
       }
 
@@ -210,6 +207,10 @@ export default function Home() {
               )}
             </div>
           )}
+
+          {/* Buy Me a Coffee button */}
+          <BuyMeACoffeeButton />
+
           <FooterDisclaimer />
         </div>
       </main>
