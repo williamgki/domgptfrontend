@@ -1,6 +1,7 @@
 "use client";
 
 import { FooterDisclaimer } from '../../components/Disclaimer';
+import { BuyMeACoffeeButton } from '../../components/BuyMeACoffeeButton';
 
 export default function About() {
   return (
@@ -9,6 +10,8 @@ export default function About() {
         <h1 className="text-3xl font-bold mb-6 text-center">About DomGPT</h1>
         
         <div className="space-y-8">
+          {/* --- Your existing content sections --- */}
+
           <section>
             <h2 className="text-2xl font-semibold mb-4">Who am I?</h2>
             <p className="mb-4">
@@ -75,6 +78,10 @@ export default function About() {
             </p>
           </section>
         </div>
+
+        {/* 👇 Inserted Buy Me a Coffee button here */}
+        <BuyMeACoffeeButton />
+
         <FooterDisclaimer />
       </div>
     </main>
