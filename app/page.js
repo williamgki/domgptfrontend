@@ -46,13 +46,9 @@ export default function Home() {
   const [style, setStyle] = useState('blog');
   const [rateLimitInfo, setRateLimitInfo] = useState(null);
 
-  const handleStyleChange = (e) => {
-    setStyle(e.target.value);
-  };
+  const handleStyleChange = (e) => setStyle(e.target.value);
 
-  const handleSuggestedQuestionClick = (question) => {
-    setInput(question);
-  };
+  const handleSuggestedQuestionClick = (question) => setInput(question);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
