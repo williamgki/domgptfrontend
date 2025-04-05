@@ -5,7 +5,6 @@ import { Send } from 'lucide-react';
 import { FooterDisclaimer } from '../components/Disclaimer';
 import { DisclaimerPopup } from '../components/DisclaimerPopup';
 import { RateLimitInfo } from '../components/RateLimitInfo';
-import { BuyMeACoffeeButton } from '../components/BuyMeACoffeeButton';
 
 const SuggestedQuestions = ({ style, onQuestionClick }) => {
   const questions = {
@@ -203,9 +202,6 @@ export default function Home() {
               )}
             </div>
           )}
-
-          {/* Buy Me a Coffee button */}
-          <BuyMeACoffeeButton />
 
           <FooterDisclaimer />
         </div>
