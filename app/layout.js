@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { NavBar } from "../components/NavBar";
 
-// Load custom fonts
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -14,7 +14,6 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-// Metadata used by <head>
 export const metadata = {
   title: "DomGPT",
   description: "Ask Dominic Cummings anything",
@@ -29,6 +28,7 @@ export default function RootLayout({ children }) {
         <meta name="description" content="Ask Dominic Cummings anything" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <NavBar />
         {children}
       </body>
     </html>
