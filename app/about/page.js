@@ -15,7 +15,7 @@ export default function About() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">Who am I?</h2>
             <p className="mb-4">
-              I live in the UK, have a family, and have worked in finance, as an entrepreneur 
+              I live in the UK, and have worked in finance, as an entrepreneur 
               and in artificial intelligence. I&apos;m not keen on sharing more info - for the reasons 
               best given by Gwern <a href="https://gwern.net/me" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">here</a>.
             </p>
