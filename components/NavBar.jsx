@@ -26,6 +26,9 @@ export const NavBar = () => {
           <Link href="/about" className={linkStyle("/about")}>
             About
           </Link>
+          <Link href="/why" className={linkStyle("/why")}>
+            Why
+          </Link>
         </div>
       </div>
     </nav>
