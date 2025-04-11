@@ -1,12 +1,10 @@
-// app/why-this-project/page.js
-// app/why-this-project/page.js
 export default function WhyThisProject() {
   return (
     <div>
       <h1>Dominic Cummings: Ideas Beyond the Blog</h1>
 
       <p>
-        Loathe him, or like him Dominic Cummings’ has had a significant influence
+        Loathe him, or like him Dominic Cummings&rsquo; has had a significant influence
         on the UK. The EU referendum and the Boris wave washed over Britain &mdash; and
         there may be more to come as Reform rises and ideas like ARIA begin to
         spread.
@@ -15,15 +13,15 @@ export default function WhyThisProject() {
         This short essay though isn&apos;t about that. Instead, it argues that
         Cummings&apos; dense, ambitious writing style means his ideas are often best
         understood through a simulacrum. Dialogue with an LLM allows the casual
-        reader to understand more than they might glean from navigating Dom’s
+        reader to understand more than they might glean from navigating Dom&rsquo;s
         sprawling blog posts alone.
       </p>
       <p>
-        Dominic Cummings' writing features remarkable (even exhilarating)
+        Dominic Cummings&apos; writing features remarkable (even exhilarating)
         intellectual leaps. His blog posts integrate concepts from seemingly
         disparate fields, including political strategy, cognitive science,
         physics, history, management theory, military doctrine, and complexity
-        science. Consider this characteristic example :
+        science. Consider this characteristic example:
       </p>
       
       <p>
@@ -50,7 +48,7 @@ export default function WhyThisProject() {
       </p>
 
       <p>
-        This extract typifies Cummings' restlessness as he traverses disciplines,
+        This extract typifies Cummings&apos; restlessness as he traverses disciplines,
         urging exploration of predictive science across physics, meteorology,
         finance, and epidemiology. He connects physical early warning systems to
         news persistence and conflict forecasting, then pivots to game theory,
@@ -62,7 +60,7 @@ export default function WhyThisProject() {
 
       <p>
         In contrast, a RAG-powered chatbot provides a potentially superior means
-        of accessing Cummings' insights. First, structure and coherence are
+        of accessing Cummings&apos; insights. First, structure and coherence are
         significantly improved; a chatbot can logically arrange ideas drawn from
         across various texts into a coherent, streamlined argument. Second, the
         connections between disparate concepts become clearer and more explicit;
@@ -71,16 +69,16 @@ export default function WhyThisProject() {
         to remove tangential details and repetitive content, focusing purely on
         core insights. Lastly, accessibility is enhanced by presenting complex,
         dense concepts in a digestible, clearly articulated format.
-      </p> 
+      </p>
       
       <p>
         This synthesized output contrasts sharply with the often overwhelming
-        experience of reading Cummings' unfiltered prose, which has a "firehose"
-        quality—rich in insight but difficult to parse without sustained effort.
+        experience of reading Cummings&apos; unfiltered prose, which has a &quot;firehose&quot;
+        quality&mdash;rich in insight but difficult to parse without sustained effort.
         Yet, wading through this density can yield significant rewards;
-        personally, grappling with Cummings' writing led to discovering thinkers
-        like Boyd and Steve Hsu’s podcast, and even influenced career paths
-        through recommendations like Zvi Mowshowitz's blog. The challenge, which
+        personally, grappling with Cummings&apos; writing led to discovering thinkers
+        like Boyd and Steve Hsu&rsquo;s podcast, and even influenced career paths
+        through recommendations like Zvi Mowshowitz&apos;s blog. The challenge, which
         AI can mitigate, lies in extracting this value efficiently from the
         dense source material.
       </p>
@@ -93,7 +91,7 @@ export default function WhyThisProject() {
         could democratize access to challenging ideas, allowing a wider audience
         to grasp core concepts and engage critically with influential, albeit
         difficult, authors, effectively creating interactive simulacra of their
-        thought. 
+        thought.
       </p>
       <p>
         In conclusion, a RAG-powered chatbot trained on Dominic Cummings&apos;
