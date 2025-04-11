@@ -48,7 +48,7 @@ export default function WhyThisProject() {
         showed in the referendum, though this has been almost totally obscured
         by all the fake news: clue — it was *not &lsquo;*microtargeting&rsquo;).&quot;
       </p>
-      
+
       <p>
         This extract typifies Cummings' restlessness as he traverses disciplines,
         urging exploration of predictive science across physics, meteorology,

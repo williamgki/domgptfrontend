@@ -49,7 +49,7 @@ const TermsAndPrivacy = () => {
         <p className="mb-4">This website may contain links to external websites. We are not responsible for the content or privacy practices of these sites.</p>
 
         <h3 className="text-xl font-semibold mb-2">Limitation of Liability</h3>
-        <p className="mb-4">The information on this website is provided "as is" without any representations or warranties, express or implied. We make no representations or warranties regarding the accuracy or completeness of the information.</p>
+        <p className="mb-4">The information on this website is provided &quot;as is&quot; without any representations or warranties, express or implied. We make no representations or warranties regarding the accuracy or completeness of the information.</p>
         <p className="mb-4">We will not be liable for any loss or damage including without limitation, indirect or consequential loss or damage, arising from use of this website.</p>
 
         <h3 className="text-xl font-semibold mb-2">Changes to Terms</h3>
