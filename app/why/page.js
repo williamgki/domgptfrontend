@@ -10,7 +10,7 @@ export default function WhyThisProject() {
         objectFit="cover"
         className="absolute -z-10 h-full w-full"
       />
-      <div className="p-8 rounded-lg shadow-lg bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg max-w-3xl w-full mx-auto my-32">
+      <div className="p-8 rounded-lg shadow-lg bg-white bg-opacity-70 backdrop-filter backdrop-blur-lg max-w-3xl w-full mx-auto my-32">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
           Dominic Cummings: Ideas Beyond the Blog
         </h1>
