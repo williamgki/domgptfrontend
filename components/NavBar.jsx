@@ -29,6 +29,9 @@ export const NavBar = () => {
           <Link href="/why" className={linkStyle("/why")}>
             Why
           </Link>
+          <Link href="/terms" className={linkStyle("/terms")}>
+            Terms and Privacy
+          </Link>
         </div>
       </div>
     </nav>
