@@ -7,14 +7,14 @@ export default function WhyThisProject() {
 
       <p>
         Loathe him, or like him Dominic Cummings’ has had a significant influence
-        on the UK. The EU referendum and the Boris wave washed over Britain - and
+        on the UK. The EU referendum and the Boris wave washed over Britain &mdash; and
         there may be more to come as Reform rises and ideas like ARIA begin to
         spread.
       </p>
       <p>
-        This short essay though isn’t about that. Instead, it argues that
-        Cumming’s dense, ambitious writing style means his ideas are often best
-        understood through a simulacra. Dialogue with an LLM allows the casual
+        This short essay though isn&apos;t about that. Instead, it argues that
+        Cummings&apos; dense, ambitious writing style means his ideas are often best
+        understood through a simulacrum. Dialogue with an LLM allows the casual
         reader to understand more than they might glean from navigating Dom’s
         sprawling blog posts alone.
       </p>
@@ -25,7 +25,7 @@ export default function WhyThisProject() {
         physics, history, management theory, military doctrine, and complexity
         science. Consider this characteristic example :
       </p>
-
+      
       <p>
         "Explore the frontiers of the science of prediction across different
         fields from physics to weather forecasting to finance and epidemiology.
@@ -38,10 +38,10 @@ export default function WhyThisProject() {
         (physical and cyber). The Tetlock/IARPA project showed dramatic
         performance improvements in political forecasting are possible, contra
         what people such as Kahneman had thought possible. A recent Nature
-        article by Duncan Watts explained fundamental problems with the way
+        article by Duncan Watts explained fundamental problems with the way 
         normal social science treats prediction and suggested new approaches —
         which have been almost entirely ignored by mainstream
-        economists/social scientists. There is vast scope for applying ideas and
+        economists/social scientists. There is vast scope for applying ideas and 
         tools from the physical sciences and data science/AI — largely ignored by
         mainstream social science, political parties, government bureaucracies
         and media — to social/political/government problems (as Vote Leave
@@ -60,7 +60,7 @@ export default function WhyThisProject() {
         beneath layers of interconnected thoughts.
       </p>
 
-      <p>
+      <p> 
         In contrast, a RAG-powered chatbot provides a potentially superior means
         of accessing Cummings' insights. First, structure and coherence are
         significantly improved; a chatbot can logically arrange ideas drawn from
@@ -72,7 +72,7 @@ export default function WhyThisProject() {
         core insights. Lastly, accessibility is enhanced by presenting complex,
         dense concepts in a digestible, clearly articulated format.
       </p>
-
+      
       <p>
         This synthesized output contrasts sharply with the often overwhelming
         experience of reading Cummings' unfiltered prose, which has a "firehose"
@@ -93,12 +93,12 @@ export default function WhyThisProject() {
         could democratize access to challenging ideas, allowing a wider audience
         to grasp core concepts and engage critically with influential, albeit
         difficult, authors, effectively creating interactive simulacra of their
-        thought.
+        thought. 
       </p>
       <p>
-        In conclusion, a RAG-powered chatbot trained on Dominic Cummings'
+        In conclusion, a RAG-powered chatbot trained on Dominic Cummings&apos;
         extensive writings provides a more insightful, structured, and
-        accessible presentation of his ideas than his original texts alone
+        accessible presentation of his ideas than his original texts alone 
         typically allow. Such AI tools represent a promising shift in how we
         engage with complex thinkers and extensive textual bodies, potentially
         transforming our capacity to assimilate and critically evaluate
