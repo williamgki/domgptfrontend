@@ -1,8 +1,20 @@
+import Image from "next/image";
+
 export default function WhyThisProject() {
   return (
-    <div>
-      <h1>Dominic Cummings: Ideas Beyond the Blog</h1>
-
+    <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
+      <Image
+        src="/twitter-background.jpg"
+        alt="Background"
+        layout="fill"
+        objectFit="cover"
+        className="absolute -z-10 h-full w-full"
+      />
+      <div className="p-8 rounded-lg shadow-lg bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg max-w-3xl w-full mx-auto my-32">
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
+          Dominic Cummings: Ideas Beyond the Blog
+        </h1>
+        
       <p>
         Loathe him, or like him Dominic Cummings&rsquo; has had a significant influence
         on the UK. The EU referendum and the Boris wave washed over Britain &mdash; and
@@ -16,8 +28,8 @@ export default function WhyThisProject() {
         reader to understand more than they might glean from navigating Dom&rsquo;s
         sprawling blog posts alone.
       </p>
-      <p>
-        Dominic Cummings&apos; writing features remarkable (even exhilarating)
+        <p>
+          Dominic Cummings&apos; writing features remarkable (even exhilarating)
         intellectual leaps. His blog posts integrate concepts from seemingly
         disparate fields, including political strategy, cognitive science,
         physics, history, management theory, military doctrine, and complexity
@@ -102,6 +114,7 @@ export default function WhyThisProject() {
         transforming our capacity to assimilate and critically evaluate
         sophisticated intellectual material.
       </p>
+      </div>
     </div>
   );
 }
