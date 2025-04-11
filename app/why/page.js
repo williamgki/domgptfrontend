@@ -27,7 +27,7 @@ export default function WhyThisProject() {
       </p>
       
       <p>
-        "Explore the frontiers of the science of prediction across different
+        &quot;Explore the frontiers of the science of prediction across different
         fields from physics to weather forecasting to finance and epidemiology.
         For example, ideas from physics about early warning systems in physical
         systems have application in many fields, including questions like: to
@@ -41,14 +41,14 @@ export default function WhyThisProject() {
         article by Duncan Watts explained fundamental problems with the way 
         normal social science treats prediction and suggested new approaches —
         which have been almost entirely ignored by mainstream
-        economists/social scientists. There is vast scope for applying ideas and 
+        economists/social scientists. There is vast scope for applying ideas and
         tools from the physical sciences and data science/AI — largely ignored by
         mainstream social science, political parties, government bureaucracies
         and media — to social/political/government problems (as Vote Leave
         showed in the referendum, though this has been almost totally obscured
-        by all the fake news: clue — it was *not ‘*microtargeting’)."
+        by all the fake news: clue — it was *not &lsquo;*microtargeting&rsquo;).&quot;
       </p>
-
+      
       <p>
         This extract typifies Cummings' restlessness as he traverses disciplines,
         urging exploration of predictive science across physics, meteorology,
@@ -60,7 +60,7 @@ export default function WhyThisProject() {
         beneath layers of interconnected thoughts.
       </p>
 
-      <p> 
+      <p>
         In contrast, a RAG-powered chatbot provides a potentially superior means
         of accessing Cummings' insights. First, structure and coherence are
         significantly improved; a chatbot can logically arrange ideas drawn from
@@ -71,7 +71,7 @@ export default function WhyThisProject() {
         to remove tangential details and repetitive content, focusing purely on
         core insights. Lastly, accessibility is enhanced by presenting complex,
         dense concepts in a digestible, clearly articulated format.
-      </p>
+      </p> 
       
       <p>
         This synthesized output contrasts sharply with the often overwhelming
@@ -84,7 +84,7 @@ export default function WhyThisProject() {
         AI can mitigate, lies in extracting this value efficiently from the
         dense source material.
       </p>
-
+      
       <p>
         This model of engaging with a complex thinker through an AI simulacrum
         holds broader potential. Imagine applying similar RAG-powered chatbots
