@@ -6,22 +6,22 @@ export default function WhyThisProject() {
       <Image
         src="/twitter-background.jpg"
         alt="Background"
-        layout="fill"
-        objectFit="cover"
+        fill
+        style={{ objectFit: "cover" }}
         className="absolute -z-10 h-full w-full"
       />
-      
+
       <div className="p-10 rounded-lg shadow-xl bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg max-w-3xl w-full mx-auto my-24">
         <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-8">
           Dominic Cummings: Ideas Beyond the Blog
         </h1>
 
         <p className="mb-6 leading-relaxed text-lg text-gray-700">
-          Loathe him, or like him Dominic Cummings&apos; has had a significant influence on the UK. The EU referendum and the Boris wave washed over Britain — and there may be more to come as Reform rises and ideas like ARIA begin to spread.
+          Loathe him, or like him, Dominic Cummings' has had a significant influence on the UK. The EU referendum and the Boris wave washed over Britain — and there may be more to come as Reform rises and ideas like ARIA begin to spread.
         </p>
 
         <p className="mb-6 leading-relaxed text-lg text-gray-700">
-          This short essay though isn&apos;t about that. Instead, it argues that Cummings&apos; dense, ambitious writing style means his ideas are often best understood through a simulacrum. Dialogue with an LLM allows the casual reader to understand more than they might glean from navigating Dom’s sprawling blog posts alone.
+          This short essay though isn't about that. Instead, it argues that Cummings' dense, ambitious writing style means his ideas are often best understood through a simulacrum. Dialogue with an LLM allows the casual reader to understand more than they might glean from navigating Dom's sprawling blog posts alone.
         </p>
 
         <p className="mb-6 leading-relaxed text-lg text-gray-700">
@@ -39,21 +39,4 @@ export default function WhyThisProject() {
         </p>
 
         <p className="mb-6 leading-relaxed text-lg text-gray-700">
-          In contrast, a RAG-powered chatbot provides a superior way to understand Dom’s thoughts.. First, structure and coherence are improved; a chatbot can arranges ideas drawn across various texts into a coherent, streamlined argument. Second, the connections between disparate concepts become clearer and more explicit; the chatbot makes explicit connections that Cummings frequently implies or rapidly skips past. Third, filtering capabilities allow the chatbot to remove tangential details and repetitive content, focusing purely on core insights. Lastly, accessibility is enhanced by presenting complex, dense concepts in a digestible, clearly articulated format.
-        </p>
-
-        <p className="mb-6 leading-relaxed text-lg text-gray-700">
-          This synthesized output contrasts with the often overwhelming experience of reading Cummings&apos; unfiltered prose, which has a &quot;firehose&quot; quality—rich in insight but difficult to parse without sustained effort. Yet, wading through this density can yield significant rewards. Personally I&apos;m grateful to him for surfacing stuff like Boyd and Steve Hsu’s podcast. Even my current job working in AI research can trace its lineage through Dom to Ziv’s blog.
-        </p>
-
-        <p className="mb-6 leading-relaxed text-lg text-gray-700">
-          This model of engaging with a complex thinker through an AI simulacrum holds broader potential. Imagine applying similar RAG-powered chatbots to the dense works of philosophers, economists, or historical figures whose original texts are notoriously difficult to penetrate. Such tools could democratise access to challenging ideas, allowing a wider audience to grasp core concepts and engage critically with influential, albeit difficult, authors, effectively creating interactive simulacra of their thought.
-        </p>
-
-        <p className="mb-6 leading-relaxed text-lg text-gray-700">
-          A RAG-powered chatbot trained on Dominic Cummings&apos; extensive writings provides a more insightful, structured, and accessible presentation of his ideas than his original texts alone typically allow. Such AI tools represent a promising shift in how we engage with complex thinkers and extensive textual bodies, potentially transforming our capacity to assimilate and critically evaluate sophisticated intellectual material. Or maybe I just wanted to provoke real Dom into a debate with his facsimile.
-        </p>
-      </div>
-    </div>
-  );
-}
+          In contrast, a RAG-powered chatbot provides a superior way to understand
