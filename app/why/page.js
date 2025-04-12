@@ -39,4 +39,21 @@ export default function WhyThisProject() {
         </p>
 
         <p className="mb-6 leading-relaxed text-lg text-gray-700">
-          In contrast, a RAG-powered chatbot provides a superior way to understand
+          In contrast, a RAG-powered chatbot provides a superior way to understand Dom's thoughts. First, structure and coherence are improved; a chatbot can arrange ideas drawn across various texts into a coherent, streamlined argument. Second, the connections between disparate concepts become clearer and more explicit; the chatbot makes explicit connections that Cummings frequently implies or rapidly skips past. Third, filtering capabilities allow the chatbot to remove tangential details and repetitive content, focusing purely on core insights. Lastly, accessibility is enhanced by presenting complex, dense concepts in a digestible, clearly articulated format.
+        </p>
+
+        <p className="mb-6 leading-relaxed text-lg text-gray-700">
+          This synthesized output contrasts with the often overwhelming experience of reading Cummings' unfiltered prose, which has a "firehose" quality—rich in insight but difficult to parse without sustained effort. Yet, wading through this density can yield significant rewards. Personally I'm grateful to him for surfacing stuff like Boyd and Steve Hsu’s podcast. Even my current job working in AI research can trace its lineage through Dom to Ziv’s blog.
+        </p>
+
+        <p className="mb-6 leading-relaxed text-lg text-gray-700">
+          This model of engaging with a complex thinker through an AI simulacrum holds broader potential. Imagine applying similar RAG-powered chatbots to the dense works of philosophers, economists, or historical figures whose original texts are notoriously difficult to penetrate. Such tools could democratise access to challenging ideas, allowing a wider audience to grasp core concepts and engage critically with influential, albeit difficult, authors, effectively creating interactive simulacra of their thought.
+        </p>
+
+        <p className="mb-6 leading-relaxed text-lg text-gray-700">
+          A RAG-powered chatbot trained on Dominic Cummings' extensive writings provides a more insightful, structured, and accessible presentation of his ideas than his original texts alone typically allow. Such AI tools represent a promising shift in how we engage with complex thinkers and extensive textual bodies, potentially transforming our capacity to assimilate and critically evaluate sophisticated intellectual material. Or maybe I just wanted to provoke real Dom into a debate with his facsimile.
+        </p>
+      </div>
+    </div>
+  );
+}
