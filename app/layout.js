@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { NavBar } from "../components/NavBar";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,8 +29,10 @@ export default function RootLayout({ children }) {
         <meta name="description" content="Ask Dominic Cummings anything" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <NavBar />
-        {children}
+        <ErrorBoundary>
+          <NavBar />
+          {children}
+        </ErrorBoundary>
       </body>
     </html>
   );
